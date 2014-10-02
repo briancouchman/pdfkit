@@ -120,11 +120,11 @@ module.exports =
       line = () -> height += @currentLineHeight(true)
       wrapper = new LineWrapper(this, {})
       wrapper.on 'line', line.bind(this)
-      wrapper.wrap([row[col.id]+'' or ''], { width: @getColWidth(colIndex) })
+      wrapper.wrap(row[col.id]+'' or '', { width: @getColWidth(colIndex) })
       if height > maxHeight
         maxHeight = height
 
-    return maxHeight + @tableOptions.padding.bottom + 8 # TODO use font height instead of 8
+    return maxHeight + @tableOptions.padding.bottom + 16 # TODO use font height instead of 8
 
   # get the x position of a column
   getXOfColumn: (colIndex) ->
